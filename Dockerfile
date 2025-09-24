@@ -1,3 +1,10 @@
+
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY . .           # Copy files FIRST
+RUN chmod +x mvnw  # Now this will succeed because mvnw is present
+CMD ["./mvnw", "quarkus:dev"]
+
 # Use the Eclipse temurin alpine official image
 # https://hub.docker.com/_/eclipse-temurin
 FROM eclipse-temurin:21-jdk-alpine
